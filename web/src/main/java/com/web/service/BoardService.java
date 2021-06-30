@@ -20,10 +20,6 @@ public class BoardService {
     }
 
     public Board findBoardByIdx(Long idx){
-        return boardRepository.getOne(idx);
-    }
-
-    public Board saveAndUpdateBoard(Board board){
-        return boardRepository.save(board);
+        return boardRepository.findById(idx).orElse(new Board());
     }
 }
